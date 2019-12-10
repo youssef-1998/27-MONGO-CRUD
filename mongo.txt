@@ -1,0 +1,251 @@
+db.contactlist.insert([{Last name: 'Kefi',First name: 'S', Email: 'kefi@gmail.com',age: '15'}, {Last name: 'Fatnassi',First name: 'Sarra', Email: 'sarra.f@gmail.com',age: '40'},{Last name: 'Ben Yahia',First name: 'Rym', age: '4'},{Last name: 'Cherif',First name: 'Sami',age: '3'}])
+db.contactlist.insert([{"last name":"Kefi","name":"Anis","email":"kefi@gmail.com","age":"15"},{"last name":"Fatnassi","name":"Sarra","email":"sarra.f@gmail.com","age":"40"},{"last name":"Ben Yahia","name":"Rym","age":"4"},{"last name":"Cherif","name":"Sami","age":"3"}])
+db.contactlist.find()
+db.contactlist.find(null,{_id:0})
+db.contactlist.find({"last name": "Kefi"})
+db.contactlist.remove({"age": {$lt: "5"}})
+
+********************************
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Tous droits réservés.
+
+Testez le nouveau système multiplateforme PowerShell https://aka.ms/pscore6
+
+PS C:\Users\ayaa2\OneDrive\Bureau\go my code\checkpoint 27 MONGO CRUD> mongo --version
+MongoDB shell version v4.2.2
+allocator: tcmalloc
+modules: none
+build environment:
+    distmod: 2012plus
+    distarch: x86_64
+    target_arch: x86_64
+PS C:\Users\ayaa2\OneDrive\Bureau\go my code\checkpoint 27 MONGO CRUD> mongo
+MongoDB shell version v4.2.2
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("e3f12119-9031-466a-a331-9e210226e68a") }
+MongoDB server version: 4.2.2
+Server has startup warnings: 
+2019-12-10T17:19:42.088+0100 I  CONTROL  [initandlisten] 
+2019-12-10T17:19:42.088+0100 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2019-12-10T17:19:42.089+0100 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2019-12-10T17:19:42.108+0100 I  CONTROL  [initandlisten] 
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use contact
+switched to db contact
+> db.createCollection('contactlist')
+{ "ok" : 1 }
+> show collections
+contactlist
+> db.esmcollectoin.drop()
+false
+> db.esmcollectoin.Drop()
+2019-12-10T19:19:32.059+0100 E  QUERY    [js] uncaught exception: TypeError: db.esmcollectoin.Drop is not a function :
+@(shell):1:1
+> show collectoin
+2019-12-10T19:20:04.121+0100 E  QUERY    [js] uncaught exception: Error: don't know how to show [collectoin] :
+shellHelper.show@src/mongo/shell/utils.js:1139:11
+shellHelper@src/mongo/shell/utils.js:790:15
+@(shellhelp2):1:1
+> db                          
+contact
+> show collections
+contactlist
+> db.articles.insertMany([{Last name: 'Kefi',First name: 'Seif', Email: 'kefi@gmail.com',age: '15'}, {Last name: 'Fatnassi',First name: 'Sarra', Email: 'sarra.f@gmail.com',age: '40'},{Last name: 'Ben Yahia',First name: 'Rym', age: '4'},{Last name: 'Cherif',First name: 'Sami',age: '3'}])
+2019-12-10T19:29:46.892+0100 E  QUERY    [js] uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:30
+> db.articles.find.pretty()
+2019-12-10T19:31:42.464+0100 E  QUERY    [js] uncaught exception: TypeError: db.articles.find.pretty is not a function :
+@(shell):1:1
+> db.contactlist.insertMany([{Last name: 'Kefi',First name: 'Seif', Email: 'kefi@gmail.com',age: '15'}, {Last name: 'Fatnassi',First name: 'Sarra', Email: 'sarra.f@gmail.com',age: '40'},{Last name: 'Ben Yahia',First name: 'Rym', age: '4'},{Last name: 'Cherif',First name: 'Sami',age: '3'}])
+2019-12-10T19:36:02.260+0100 E  QUERY    [js] uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:33
+> show collections
+contactlist
+> db.collections.drop()
+false
+> show collections
+contactlist
+> db.collections.drop({contactlist})
+2019-12-10T19:41:03.409+0100 E  QUERY    [js] uncaught exception: ReferenceError: contactlist is not defined :
+@(shell):1:22
+> db.collections.drop(contactlist)
+2019-12-10T19:41:46.810+0100 E  QUERY    [js] uncaught exception: ReferenceError: contactlist is not defined :
+@(shell):1:1
+> show collections
+contactlist
+> db.contactmongo.insertMany([{Last name: 'Kefi',First name: 'Seif', Email: 'kefi@gmail.com',age: '15'}, {Last name: 'Fatnassi',First name: 'Sarra', Email: 'sarra.f@gmail.com',age: '40'},{Last name: 'Ben Yahia',First name: 'Rym', age: '4'},{Last name: 'Cherif',First name: 'Sami',age: '3'}])
+2019-12-10T19:42:40.367+0100 E  QUERY    [js] uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:34
+> db.contactlist.find()
+> db.contactlist.drop()
+true
+> show collections
+> db.contactlist.insertMany([{Last name: 'Kefi',First name: 'Seif', Email: 'kefi@gmail.com',age: '15'}, {Last name: 'Fatnassi',First name: 'Sarra', Email: 'sarra.f@gmail.com',age: '40'},{Last name: 'Ben Yahia',First name: 'Rym', age: '4'},{Last name: 'Cherif',First name: 'Sami',age: '3'}])
+2019-12-10T19:51:08.906+0100 E  QUERY    [js] uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:33
+> db.contactlist.insert([{Last name: 'Kefi',First name: 'Seif', Email: 'kefi@gmail.com',age: '15'}, {Last name: 'Fatnassi',First name: 'Sarra', Email: 'sarra.f@gmail.com',age: '40'},{Last name: 'Ben Yahia',First name: 'Rym', age: '4'},{Last name: 'Cherif',First name: 'Sami',age: '3'}])
+2019-12-10T19:55:57.001+0100 E  QUERY    [js] uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:29
+> db.contactlist.insert([{"last name":"Kefi","name":"Seif","email":"kefi@gmail.com","age":"15"},{"last name":"Fatnassi","name":"Sarra","email":"sarra.f@gmail.com","age":"40"},{"last name":"Ben Yahia","name":"Rym","age":"4"},{"last name":"Cherif","name":"Sami","age":"3"}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 4,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.articles.find()
+> show collections
+contactlist
+> db.contactlist.find()
+{ "_id" : ObjectId("5defebb0cd53d511fffbad57"), "last name" : "Kefi", "name" : "Seif", "email" : "kefi@gmail.com", "age" : "15" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad58"), "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad59"), "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad5a"), "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.find(null,{_id:0})
+{ "last name" : "Kefi", "name" : "Seif", "email" : "kefi@gmail.com", "age" : "15" }
+{ "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.find(null,{id:0})
+{ "_id" : ObjectId("5defebb0cd53d511fffbad57"), "last name" : "Kefi", "name" : "Seif", "email" : "kefi@gmail.com", "age" : "15" }        
+{ "_id" : ObjectId("5defebb0cd53d511fffbad58"), "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad59"), "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad5a"), "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.find(null,{_id:0})
+{ "last name" : "Kefi", "name" : "Seif", "email" : "kefi@gmail.com", "age" : "15" }
+{ "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.find({last name: "Kefi"})
+2019-12-10T20:16:19.572+0100 E  QUERY    [js] uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:26
+> db.contactlist.find({"last name": "Kefi"})
+{ "_id" : ObjectId("5defebb0cd53d511fffbad57"), "last name" : "Kefi", "name" : "Seif", "email" : "kefi@gmail.com", "age" : "15" }
+> db.contactlist.find({"last name": "Kefi"},{_id:0})
+{ "last name" : "Kefi", "name" : "Seif", "email" : "kefi@gmail.com", "age" : "15" }
+> db.contactlist.find({"age": > 18})      
+2019-12-10T20:18:52.592+0100 E  QUERY    [js] uncaught exception: SyntaxError: expected expression, got '>' :
+@(shell):1:28
+> db.contactlist.find({"age": > "18"})      
+2019-12-10T20:19:21.499+0100 E  QUERY    [js] uncaught exception: SyntaxError: expected expression, got '>' :
+@(shell):1:28
+> db.contactlist.find({"age" > "18"})    
+2019-12-10T20:19:32.747+0100 E  QUERY    [js] uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:27
+> db.contactlist.find({"age": {$gt: 18}})   
+> db.contactlist.find({"age": {$gt: "18"}})   
+{ "_id" : ObjectId("5defebb0cd53d511fffbad58"), "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad59"), "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad5a"), "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.find({"age": {$gte: "18"}})   
+{ "_id" : ObjectId("5defebb0cd53d511fffbad58"), "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad59"), "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad5a"), "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.find({"age": {$eq: "18"}})   
+> db.contactlist.find({"age": {$eq: "18"}})   
+> db.contactlist.find({"age": {$eq: "40"}})   
+{ "_id" : ObjectId("5defebb0cd53d511fffbad58"), "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+> db.contactlist.find({"age": {$gt: "18"}})   
+{ "_id" : ObjectId("5defebb0cd53d511fffbad58"), "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad59"), "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad5a"), "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.update({"name":"seif",{"name":"anis"}})
+2019-12-10T20:52:16.472+0100 E  QUERY    [js] uncaught exception: SyntaxError: expected property name, got '{' :
+@(shell):1:37
+> db.contactlist.update({"age":15f",{"name":"anis"}})   
+2019-12-10T20:53:22.545+0100 E  QUERY    [js] uncaught exception: SyntaxError: identifier starts immediately after numeric literal :
+@(shell):1:29
+> db.contactlist.updateone({"age":15f",{"name":"anis"}})   
+2019-12-10T20:55:02.370+0100 E  QUERY    [js] uncaught exception: SyntaxError: identifier starts immediately after numeric literal :
+@(shell):1:32
+> db.contactlist.updateOne({"age":15f",{"name":"anis"}})   
+2019-12-10T20:55:15.732+0100 E  QUERY    [js] uncaught exception: SyntaxError: identifier starts immediately after numeric literal :
+@(shell):1:32
+> db.contactlist.update({"age":15",{"name":"anis"}})    
+2019-12-10T20:55:27.246+0100 E  QUERY    [js] uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:31
+> db.contactlist.updateOne({"age":15",{"name":"anis"}})   
+2019-12-10T20:55:43.295+0100 E  QUERY    [js] uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:34
+> db.contactlist.update({"age":"15"},{"name":"anis"})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.contactlist.find(null,{_id:0})
+{ "name" : "anis" }
+{ "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.update({"name":"anis"},{"last name" : "Kefi", "email" : "kefi@gmail.com", "age" : "15" })                 
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>  db.contactlist.find(null,{_id:0})
+{ "last name" : "Kefi", "email" : "kefi@gmail.com", "age" : "15" }
+{ "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.update({"name":"anis"},{"last name" : "Kefi","name":"anis", "email" : "kefi@gmail.com", "age" : "15" }) 
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.contactlist.find(null,{_id:0})
+{ "last name" : "Kefi", "email" : "kefi@gmail.com", "age" : "15" }
+{ "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.update({"age":"15"},{"last name" : "Kefi","name": "Anis", "email" : "kefi@gmail.com", "age" : "15" })   
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.contactlist.find(null,{_id:0})
+{ "last name" : "Kefi", "name" : "Anis", "email" : "kefi@gmail.com", "age" : "15" }
+{ "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.find()            
+{ "_id" : ObjectId("5defebb0cd53d511fffbad57"), "last name" : "Kefi", "name" : "Anis", "email" : "kefi@gmail.com", "age" : "15" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad58"), "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad59"), "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "_id" : ObjectId("5defebb0cd53d511fffbad5a"), "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.remove({"age": {$lt: "5"}})
+WriteResult({ "nRemoved" : 4 })
+> db.contactlist.find()
+> db.contactlist.insert([{"last name":"Kefi","name":"Anis","email":"kefi@gmail.com","age":"15"},{"last name":"Fatnassi","name":"Sarra","email":"sarra.f@gmail.com","age":"40"},{"last name":"Ben Yahia","name":"Rym","age":"4"},{"last name":"Cherif","name":"Sami","age":"3"}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 4,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.contactlist.find()
+{ "_id" : ObjectId("5df001f4cd53d511fffbad5b"), "last name" : "Kefi", "name" : "Anis", "email" : "kefi@gmail.com", "age" : "15" }
+{ "_id" : ObjectId("5df001f4cd53d511fffbad5c"), "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+{ "_id" : ObjectId("5df001f4cd53d511fffbad5d"), "last name" : "Ben Yahia", "name" : "Rym", "age" : "4" }
+{ "_id" : ObjectId("5df001f4cd53d511fffbad5e"), "last name" : "Cherif", "name" : "Sami", "age" : "3" }
+> db.contactlist.remove({"age": {$gt: "5"}})
+WriteResult({ "nRemoved" : 0 })
+> db.contactlist.remove({"age": {$eq: "3"}})
+WriteResult({ "nRemoved" : 1 })
+> db.contactlist.remove({"age": {$eq: "4"}})
+WriteResult({ "nRemoved" : 1 })
+> db.contactlist.find()
+{ "_id" : ObjectId("5df001f4cd53d511fffbad5b"), "last name" : "Kefi", "name" : "Anis", "email" : "kefi@gmail.com", "age" : "15" }
+{ "_id" : ObjectId("5df001f4cd53d511fffbad5c"), "last name" : "Fatnassi", "name" : "Sarra", "email" : "sarra.f@gmail.com", "age" : "40" }
+>
